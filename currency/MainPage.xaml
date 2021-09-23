@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="currency.MainPage"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="true">
+
+    <ContentPage.Resources>
+        <ResourceDictionary x:Name="AppDictionary" >
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+            <Color x:Key="BorderColor">#000</Color>
+            <Style x:Key="InternalViewStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+                <Setter Property="Padding" Value="10,10,10,10"></Setter>
+            </Style>
+            <Style x:Key="BorderStyleWithoutTop" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BorderColor}" />
+                <Setter Property="Padding" Value="1,0,1,1"></Setter>
+                <!--<Setter Property="MinimumHeightRequest" Value="65"></Setter>-->
+            </Style>
+             <Style x:Key="BorderStyleTop" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BorderColor}" />
+                <Setter Property="Padding" Value="1,1,1,1"></Setter>
+                 <!--<Setter Property="MinimumHeightRequest" Value="65"></Setter>-->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout x:Name="containerView" Padding="10,0" Spacing="0">
+            <Label x:Name="totalCurrency" Margin="20" TextColor="Black" Text="Total: $3.75c" FontSize="30" VerticalTextAlignment="center" HorizontalTextAlignment="Center"/>
+            <!--$1-->
+            <ContentView  
+                Style="{StaticResource BorderStyleTop}">
+                <Grid Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource InternalViewStyle}">
+                    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
+                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Text="$1" FontSize="24" VerticalTextAlignment="center"/>
+                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Text="( 1 )" FontSize="24" VerticalTextAlignment="center"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button Grid.Row="0" Grid.Column="0" Background="transparent" TextColor="black" FontSize="24" Text="+" AutomationId="1"  Clicked="BtnAddCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Background="transparent" TextColor="black" FontSize="24" Text="-" AutomationId="1" Clicked="BtnsubtractCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="2" Background="transparent" TextColor="black" FontSize="24" Text="▼" AutomationId="1" Clicked="BtnSubtractCoinAddDown_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="3" Background="transparent" TextColor="black" FontSize="24" Text="▲" IsEnabled="False" AutomationId="1" Clicked="BtnSubtractCoinAddUp_Clicked"/>
+                    </Grid>
+                    <Label x:Name="totalOneDollar" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" TextColor="Black" Text="$1" FontSize="24" VerticalTextAlignment="Center"  HorizontalTextAlignment="End"/>
+                </Grid>
+            </ContentView>
+            <!--50c-->
+            <ContentView  
+                Style="{StaticResource BorderStyleWithoutTop}">
+                <Grid Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource InternalViewStyle}">
+                    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
+                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Text="50c" FontSize="24" VerticalTextAlignment="center"/>
+                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Text="( 5 )" FontSize="24" VerticalTextAlignment="center"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button Grid.Row="0" Grid.Column="0" Background="transparent" TextColor="black" FontSize="24" Text="+" AutomationId="2"  Clicked="BtnAddCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Background="transparent" TextColor="black" FontSize="24" Text="-" AutomationId="2" Clicked="BtnsubtractCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="2" Background="transparent" TextColor="black" FontSize="24" Text="▼" AutomationId="2" Clicked="BtnSubtractCoinAddDown_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="3" Background="transparent" TextColor="black" FontSize="24" Text="▲" AutomationId="2" Clicked="BtnSubtractCoinAddUp_Clicked"/>
+                    </Grid>
+                    <Label x:Name="totalFiftyCent" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" TextColor="Black" Text="$2.50c" FontSize="24" VerticalTextAlignment="Center"  HorizontalTextAlignment="End"/>
+                </Grid>
+            </ContentView>
+            <!--20c-->
+            <ContentView  
+                Style="{StaticResource BorderStyleWithoutTop}">
+                <Grid Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource InternalViewStyle}">
+                    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
+                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Text="20c" FontSize="24" VerticalTextAlignment="center"/>
+                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Text="( 0 )" FontSize="24" VerticalTextAlignment="center"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button Grid.Row="0" Grid.Column="0" Background="transparent" TextColor="black" FontSize="24" Text="+" AutomationId="3"  Clicked="BtnAddCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Background="transparent" TextColor="black" FontSize="24" Text="-" AutomationId="3" Clicked="BtnsubtractCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="2" Background="transparent" TextColor="black" FontSize="24" Text="▼" AutomationId="3" Clicked="BtnSubtractCoinAddDown_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="3" Background="transparent" TextColor="black" FontSize="24" Text="▲" AutomationId="3" Clicked="BtnSubtractCoinAddUp_Clicked"/>
+                    </Grid>
+                    <Label x:Name="totalTwentyCent" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" TextColor="Black" Text="0c" FontSize="24" VerticalTextAlignment="Center"  HorizontalTextAlignment="End"/>
+                </Grid>
+            </ContentView>
+            <!--10c-->
+            <ContentView  
+                Style="{StaticResource BorderStyleWithoutTop}">
+                <Grid  Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource InternalViewStyle}">
+                    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
+                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Text="10c" FontSize="24" VerticalTextAlignment="center"/>
+                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Text="( 0 )" FontSize="24" VerticalTextAlignment="center"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button Grid.Row="0" Grid.Column="0" Background="transparent" TextColor="black" FontSize="24" Text="+" AutomationId="4"  Clicked="BtnAddCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Background="transparent" TextColor="black" FontSize="24" Text="-" AutomationId="4" Clicked="BtnsubtractCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="2" Background="transparent" TextColor="black" FontSize="24" Text="▼" AutomationId="4" Clicked="BtnSubtractCoinAddDown_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="3" Background="transparent" TextColor="black" FontSize="24" Text="▲" AutomationId="4" Clicked="BtnSubtractCoinAddUp_Clicked"/>
+                    </Grid>
+                    <Label x:Name="totalTenCent" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" TextColor="Black" Text="0c" FontSize="24" VerticalTextAlignment="Center"  HorizontalTextAlignment="End"/>
+                </Grid>
+            </ContentView>
+            <!--5c-->
+            <ContentView  
+                Style="{StaticResource BorderStyleWithoutTop}">
+                <Grid Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource InternalViewStyle}">
+                    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" >
+                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Text="5c" FontSize="24" VerticalTextAlignment="center"/>
+                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Text="( 5 )" FontSize="24" VerticalTextAlignment="center"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button Grid.Row="0" Grid.Column="0" Background="transparent" TextColor="black" FontSize="24" Text="+" AutomationId="5"  Clicked="BtnAddCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Background="transparent" TextColor="black" FontSize="24" Text="-" AutomationId="5" Clicked="BtnsubtractCoin_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="2" Background="transparent" TextColor="black" FontSize="24" Text="▼" IsEnabled="False" AutomationId="5" Clicked="BtnSubtractCoinAddDown_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="3" Background="transparent" TextColor="black" FontSize="24" Text="▲" AutomationId="5" Clicked="BtnSubtractCoinAddUp_Clicked"/>
+                    </Grid>
+                    <Label x:Name="totalFiveCent" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" TextColor="Black" Text="25c" FontSize="24" VerticalTextAlignment="Center"  HorizontalTextAlignment="End"/>
+                </Grid>
+            </ContentView>
+       
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
